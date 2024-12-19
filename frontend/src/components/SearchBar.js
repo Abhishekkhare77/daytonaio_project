@@ -10,7 +10,7 @@ const SearchBar = ({ onSearch }) => {
   };
 
   return (
-    <form onSubmit={handleSearch}>
+    <form onSubmit={handleSearch} className="search-bar">
       <input
         type="text"
         value={query}
@@ -19,6 +19,31 @@ const SearchBar = ({ onSearch }) => {
         required
       />
       <button type="submit">Search</button>
+      <style jsx>{`
+        .search-bar {
+          display: flex;
+          justify-content: center;
+          margin: 20px 0;
+        }
+        input {
+          width: 60%;
+          padding: 10px;
+          border: 1px solid #ccc;
+          border-radius: 4px 0 0 4px;
+          outline: none;
+        }
+        button {
+          padding: 10px 20px;
+          border: none;
+          background-color: #0070f3;
+          color: white;
+          cursor: pointer;
+          border-radius: 0 4px 4px 0;
+        }
+        button:hover {
+          background-color: #005bb5;
+        }
+      `}</style>
     </form>
   );
 };

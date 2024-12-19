@@ -1,7 +1,7 @@
 import json
 import asyncio
 from typing import List
-from .models import Book
+from models import Book
 from .search import add_books, index
 from .utils import generate_creative_summary_via_gemini
 
