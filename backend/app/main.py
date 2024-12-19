@@ -32,9 +32,14 @@ def startup_event():
 
 @app.post("/books/", response_model=Book)
 async def create_book(book: BookCreate):
-    # Assign a new ID
-    current_doc_ids = [doc["id"] for doc in index.get_documents()]
-    new_id = max(current_doc_ids, default=0) + 1
+    # Fetch existing documents and extract their IDs
+    existing_documents = index.get_documents(
+        {"limit": 1000}
+    )  # Fetch up to 1000 documents
+    current_doc_ids = [
+        doc.id for doc in existing_documents.results
+    ]  # Access the id attribute
+    new_id = max(current_doc_ids, default=0) + 1  # Generate a new unique ID
 
     # Generate summary asynchronously
     loop = asyncio.get_event_loop()
@@ -42,6 +47,7 @@ async def create_book(book: BookCreate):
         None, generate_creative_summary_via_gemini, book.pdf_uri or "", book.title
     )
 
+    # Create a new Book instance
     new_book = Book(
         id=new_id,
         title=book.title,
@@ -52,6 +58,8 @@ async def create_book(book: BookCreate):
         creative_summary=summary_data.get("creative_summary", ""),
         concepts_learned=summary_data.get("concepts_learned", []),
     )
+
+    # Add the new book to the MeiliSearch index
     add_books([new_book])
     return new_book
 
@@ -69,24 +77,22 @@ async def summarize(request: SummaryRequest):
     if not book:
         raise HTTPException(status_code=404, detail="Book not found")
 
-    pdf_uri = book.get("pdf_uri", "")
-    title = book.get("title", "")
+    # Access attributes directly instead of using .get()
+    pdf_uri = book.pdf_uri if hasattr(book, "pdf_uri") else ""
+    title = book.title if hasattr(book, "title") else ""
+
     if not pdf_uri:
         raise HTTPException(
             status_code=400, detail="No PDF URI available for this book"
         )
 
     # Generate summary based on request_type
-    if request_type := request.request_type.lower():
-        if request_type not in ["summary", "themes", "characters", "plots"]:
-            raise HTTPException(status_code=400, detail="Invalid request type")
-    else:
-        request_type = "summary"
+    request_type = request.request_type.lower()
+    if request_type not in ["summary", "themes", "characters", "plots"]:
+        raise HTTPException(status_code=400, detail="Invalid request type")
 
+    # Generate the summary
     summary_data = generate_creative_summary_via_gemini(pdf_uri, title)
-
-    # Update the book in MeiliSearch with the new summary if needed
-    # For this example, we'll return the summary without updating the index
 
     return {
         "creative_summary": summary_data.get("creative_summary", ""),

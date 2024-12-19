@@ -1,11 +1,12 @@
 "use client";
-import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/navigation';
 
-const BookDetail = () => {
-    const router = useRouter();
-    const { id } = router.query;
+const BookDetail = ({ params }) => {
+    console.log(params);
+    const { id } = params;
+    console.log(id);
     const [book, setBook] = useState(null);
     const [summary, setSummary] = useState("");
     const [requestType, setRequestType] = useState("summary");
@@ -15,7 +16,7 @@ const BookDetail = () => {
     useEffect(() => {
         if (id) {
             // Fetch book details
-            axios.get(`http://localhost:8000/search/?query=id:${id}`)
+            axios.get(`http://localhost:8000/search/?query=${id}`)
                 .then(res => {
                     if (res.data.length > 0) {
                         setBook(res.data[0]);

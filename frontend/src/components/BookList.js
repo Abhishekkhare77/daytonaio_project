@@ -16,7 +16,7 @@ const BookList = ({ books }) => {
           </p>
           <p>{book.description}</p>
           <Link href={`/book/${book.id}`}>
-            <a className="view-summary">View Summary</a>
+            <div className="view-summary">View Summary</div>
           </Link>
         </div>
       ))}
