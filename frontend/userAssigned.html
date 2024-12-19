@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TeamOrg</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>TeamOrg</title>
+    <style>
+        body {
+            min-width: 300px;
+            margin: 0 auto;
+            min-height: 450px;
+            max-height: 450px;
+            background-color: #FAFAFA;
+        }
+    
+    #user-container {
+      height: 338px;
+      overflow: hidden;
+      overflow-y: scroll;
+      margin-right: 2px;
+    }
+
+    /* width */
+    #user-container::-webkit-scrollbar {
+      width: 3px;
+      height: 20px;
+    }
+
+    /* Track */
+    /* Add styles for the track here if needed */
+
+    /* Handle */
+    #user-container::-webkit-scrollbar-thumb {
+      background: #BF95A8;
+      border-radius: 10px;
+    }
+
+    .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 16px;
+            height: 15px;
+            border-radius: 50%;
+            border-left-color: #fff;
+            animation: spin 1s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .button-content {
+            display: inline-block;
+        }
+
+        .spinner-container {
+            display: none;
+        }
+
+        .loader {
+    border: 4px solid #DB2777;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border-left-color: #fff;
+    animation: spin 1s ease infinite;
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 45%;
+    transform: translate(-50%, -50%);
+}
+
+/* @keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} */
+  
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div >
+
+        <div class="flex flex-col item-center justify-between bg-white">
+            <div class="flex item-center justify-between bg-white pt-3 pb-5 px-2 ">
+                <a href="popup.html">
+                    <h1 class="text-2xl font-extrabold text-pink-700 ">Catax</h1>
+                </a>
+                <div class="flex gap-x-2">
+                    <button id="assign_task" class="bg-pink-600 rounded-lg text-center  text-white py-1.5 px-4">
+                        <span id="done_text" class="button-content">Done</span>
+                        <span id="spinner_container" style="padding-left: 6px; padding-right: 6px;" class="spinner-container">
+                            <div class="spinner" ></div>
+                        </span>
+
+                    </button>
+                    <a href="profile.html" rel="noopener noreferrer" class="h-8 w-8">
+                        <svg viewBox="0 0 24.00 24.00" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                            <g id="SVGRepo_iconCarrier">
+                                <path opacity="0.4"
+                                    d="M12.1207 12.78C12.0507 12.77 11.9607 12.77 11.8807 12.78C10.1207 12.72 8.7207 11.28 8.7207 9.50998C8.7207 7.69998 10.1807 6.22998 12.0007 6.22998C13.8107 6.22998 15.2807 7.69998 15.2807 9.50998C15.2707 11.28 13.8807 12.72 12.1207 12.78Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path opacity="0.34"
+                                    d="M18.7398 19.3801C16.9598 21.0101 14.5998 22.0001 11.9998 22.0001C9.39977 22.0001 7.03977 21.0101 5.25977 19.3801C5.35977 18.4401 5.95977 17.5201 7.02977 16.8001C9.76977 14.9801 14.2498 14.9801 16.9698 16.8001C18.0398 17.5201 18.6398 18.4401 18.7398 19.3801Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                                <path
+                                    d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+                                    stroke="#000000" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                </path>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+
+            <div class="flex justify-between item-center mb-2 mx-2">
+                <div class="  flex ">
+                    <input id="selelect_all_user" type="checkbox" class="mr-2 mt-1">
+                    <svg class="mt-1.5" height="20px" width="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                        <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                        <g id="SVGRepo_iconCarrier">
+                            <path
+                                d="M8.707 6.707a1 1 0 0 0-1.414-1.414L4 8.586 2.707 7.293a1 1 0 0 0-1.414 1.414l2 2a1 1 0 0 0 1.414 0l4-4ZM12 7a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H12ZM8.707 13.293a1 1 0 0 1 0 1.414l-4 4a1 1 0 0 1-1.414 0l-2-2a1 1 0 1 1 1.414-1.414L4 16.586l3.293-3.293a1 1 0 0 1 1.414 0ZM12 15a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2H12Z"
+                                fill="#000000"></path>
+                        </g>
+                    </svg>
+                </div>
+
+                <div class="relative">
+                    <div class="absolute  flex items-center mt-1 mx-1 p-0.5 ">
+                        <svg class="w-3 h-3 ml-0.5 mt-0.5  text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                            fill="none" viewBox="0 0 20 20">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+                        </svg>
+                    </div>
+                    <input type="search" id="default-search" style="background-color:#FAFAFA"  class="w-36 text-gray-900 pl-6 pr-2 py-1 rounded-md border" placeholder="Search List"  />
+                </div>
+            </div>
+        </div>
+
+        <div class=" mt-2 flex flex-col gap-y-4">
+            <div id="loader" class="loader"></div>
+            <div  style="height: 350px; overflow: hidden; overflow-y: scroll; " id="user-container" class="flex flex-col item-center px-2 mr-1 mb-2">
+               
+            </div>
+
+        </div>
+
+    </div>
+</body>
+<script src="scripts/userAssigned.js"></script>
+</html>
+

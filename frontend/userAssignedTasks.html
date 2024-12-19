@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>TeamOrg</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-width: 300px;
+            margin: 0 auto;
+            min-height: 450px;
+            max-height: 450px;
+            background-color: #FAFAFA;
+        }
+
+    
+    #user-container {
+      height: 338px;
+      overflow: hidden;
+      overflow-y: scroll;
+      margin-right: 2px;
+    }
+
+    /* width */
+    #user-container::-webkit-scrollbar {
+      width: 3px;
+      height: 20px;
+    }
+
+    /* Track */
+    /* Add styles for the track here if needed */
+
+    /* Handle */
+    #user-container::-webkit-scrollbar-thumb {
+      background: #BF95A8;
+      border-radius: 10px;
+    }
+    </style>
+</head>
+
+<body>
+    <div style="background-color: #FAFAFA;" class="container mx-auto">
+        <div class="flex flex-col item-center justify-between bg-white">
+            <div class="flex item-center justify-between bg-white pt-3 pb-5 px-2">
+                <div class="flex items-center  bg-white ">
+                    <div class="flex items-center justify-center ">
+                        <a href="task.html"><img class="h-5 w-5 ml-2"
+                                src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" alt="avatar"></a>
+                    </div>
+                    <div  class="font-bold text-base ml-2 ">Assigned Users</div>
+                </div>
+               
+            </div>
+
+          
+        </div>
+
+        <div id="user-container" class="px-2">
+            <!-- User cards will be appended here dynamically -->
+        </div>
+    </div>
+
+    <script src="scripts/userAssignedTasks.js">
+
+    </script>
+</body>
+
+</html>

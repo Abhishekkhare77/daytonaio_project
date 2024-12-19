@@ -1,0 +1,58 @@
+<html>
+
+<head>
+    <title>TeamOrg</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-width: 300px;
+            margin: 0 auto;
+            min-height: 450px;
+            max-height: 450px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div>
+        <div class="flex item-center justify-between">
+            <div class="flex items-center  bg-white py-2 px-2 h-12">
+                <div class="flex items-center justify-center ">
+                    <a href="setting.html"><img class="h-5 w-5 ml-2"
+                            src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" alt="avatar"></a>
+                </div>
+                <div class="font-bold text-base ml-2">Organization</div>
+            </div>
+            <div id="edit">
+                <a href="editOrg.html">
+                    <div class="  text-gray-500   mt-3.5 text-base font-semibold mr-5">Edit</div>
+                </a>
+            </div>
+        </div>
+        <div class=" relative bg-pink-600 h-1/4 w-full rounded-md flex  justify-center item-center">
+            <div style="height:120px; width: 120px;"
+                class="absolute top-9 border border-gray-200 rounded-full flex flex-col item-center justify-center bg-gray-100 text-center">
+                <img id="org_logo" height="120px" width="120px" style="border-radius: 100%;" src="" alt="logo">
+
+            </div>
+        </div>
+        
+        <div class="mt-16 flex flex-col w-full  item-center justify-center">
+            <div class="flex   item-center justify-center ">
+                <h1 id="org_country" class="px-3 py-2 text-xs rounded-md font-medium  bg-gray-100 "></h1>
+            </div>
+            <div class="flex  item-center justify-center mt-2">
+                <h1 id="org_name" class="text-sm font-bold text-xl"></h1>
+            </div>
+            <a href="" target="_blank" id="org_link" class="mt-2 ">
+                
+                <h1 id="org_website" style="color:#2196F3; text-decoration: underline;" class="text-sm text-center"></h1>
+            </a>
+        </div>
+
+    </div>
+</body>
+<script src="scripts/organization.js"></script>
+
+</html>

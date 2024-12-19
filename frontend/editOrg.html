@@ -1,0 +1,104 @@
+<html>
+
+<head>
+    <title>TeamOrg</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            width: 300px;
+            margin: 0 auto;
+            height: 450px;
+            background-color: #FFFFFF;
+        }
+
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border-left-color: #fff;
+            animation: spin 1s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .button-content {
+            display: inline-block;
+        }
+
+        .spinner-container {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div style="background-color: #FBFBFB;" class="flex items-center  bg-gray-100 py-2 px-2 h-12">
+            <a href="organization.html" class="flex items-center justify-center gap-x-2">
+                <img class="h-5 w-5 ml-2" src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" alt="avatar">
+            </a>
+            <div class="font-bold  text-sm ml-2">Edit Organization</div>
+        </div>
+        <form class="px-2 py-2 text-sm font-bold mt-2">
+            <div>
+                <label class="font-medium" for="org_Name">Organization Name </label>
+                <input value="" type="text" id="edit_org_Name"
+                    class="border-2 border-gray-300 p-2 mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                    placeholder="Enter Organization Name">
+            </div>
+            <div class="mt-3">
+                <label class="font-medium" for="org_url">Website Url</label>
+                <input value="" type="text" id="edit_org_url"
+                    class="border-2 border-gray-300 p-2 mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                    placeholder="Enter Organization Website">
+            </div>
+            <div class="mt-3">
+                <label class="font-medium" for="countries">Country </label>
+                <select value="" id="edit_countries"
+                    class="border-2 border-gray-300 p-2 mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none">
+                    <option selected>Enter Organization Country</option>
+                    <option value="US">United States</option>
+                    <option value="CA">Canada</option>
+                    <option value="FR">France</option>
+                    <option value="DE">Germany</option>
+                    <option value="IND">India</option>
+                </select>
+            </div>
+            <div class="mt-3">
+                <label class="font-medium" for="edit_org_logo">Logo link </label>
+                <input value="" type="text" id="edit_org_logo"
+                    class="border-2 border-gray-300 p-2 mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                    placeholder="Enter Organization Logo link">
+            </div>
+        </form>
+        <div class="px-2">
+            <!-- <button id="org_submit"
+        style="background-color: #DB2777;"
+        class="px-2 py-2 rounded-xl font-semibold bg-pink-600 text-white hover:bg-pink-700  text-base  w-full ">Done</button> -->
+
+            <button style="background-color: #DB2777;" id="org_submit"
+                class="px-2 py-2 rounded-xl font-semibold bg-pink-600 text-white hover:bg-pink-700  text-base  w-full ">
+                <span id="done_text" class="button-content">Done</span>
+                <span id="spinner_container" class="spinner-container">
+                    <div class="spinner" ></div>
+                </span>
+            </button>
+
+        </div>
+    </div>
+</body>
+
+<script src="scripts/editOrg.js">
+</script>
+
+</html>

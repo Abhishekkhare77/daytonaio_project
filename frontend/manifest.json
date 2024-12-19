@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "TeamOrg",
+    "description": "TeamOrg is a tool for organizing your team's work.",
+    "version": "1.0",
+    "permissions": [
+      "notifications","storage", "alarms"
+    ],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "web_accessible_resources": [
+      {
+        "resources": ["profile.html","task.html","login.html","register.html","editTask.html","addTask.html"],
+        "matches": ["<all_urls>"]
+      }
+    ],
+    "externally_connectable": {
+      "matches": ["<all_urls>"]
+    },
+    "action": {
+      "default_popup": "login.html",
+      "default_icon": "hello_extensions.png"
+    },
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+  }
+}
+
+

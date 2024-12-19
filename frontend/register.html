@@ -1,0 +1,103 @@
+<html>
+
+<head>
+    <title>TeamOrg</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-width: 300px;
+            margin: 0 auto;
+            height: 450px;
+        }
+
+        /* Add this CSS to your stylesheet */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            border-left-color: #fff;
+            animation: spin 1s ease infinite;
+            display: inline-block;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .button-content {
+            display: inline-block;
+        }
+
+        .spinner-container {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="h-full  ">
+        <div class="font-bold text-xl text-center mt-2">Register</div>
+        <div class="py-3 mx-2">
+            <form method="post" class=" py-2 ">
+                <div class="mt-3">
+                    <label class="font-medium" for="Register_name">Name </label>
+                    <input style="background-color: #FBFBFB;" type="text" id="Register_name"
+                        class="border-2 border-gray-300 p-2 mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                        placeholder="Name">
+
+                </div>
+                <div class="mt-3">
+                    <label class="font-medium" for="Register_Mob_Num">Mobile number </label>
+                    <input style="background-color: #FBFBFB;" type="text" id="Register_Mob_Num"
+                        class="border-2 border-gray-300 p-2  mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                        placeholder=" Mobile Number">
+
+                </div>
+                <div class="mt-3">
+                    <label class="font-medium" for="Register_email">Email </label>
+                    <input style="background-color: #FBFBFB;" type="email" id="Register_email"
+                        class="border-2 border-gray-300 p-2  mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                        placeholder="Email">
+
+                </div>
+                <div class="mt-3">
+                    <label class="font-medium" for="Register_Pass"> Create Password </label> <span>
+                        <input style="background-color: #FBFBFB;" type="password" id="Register_Pass"
+                            class="border-2 border-gray-300 p-2 mt-1.5 rounded-lg w-full focus:border-pink-300  focus:outline-none"
+                            placeholder="Password">
+                    </span>
+                </div>
+            </form>
+            <div class="w-full ">
+
+
+                <!-- <button style="background-color: #DB2777;" id="Register_submit"
+                    class="px-2 py-2 rounded-xl font-semibold bg-pink-600 text-white hover:bg-pink-700  text-base  w-full  ">
+                    Register</button> -->
+
+<button style="background-color: #DB2777;" id="Register_submit"
+  class="px-2 py-2 rounded-xl font-semibold bg-pink-600 text-white hover:bg-pink-700 text-base w-full">
+  <span id="register_text" class="button-content">Register</span>
+  <span id="register_spinner_container" class="spinner-container">
+    <div class="spinner" ></div>
+  </span>
+</button>
+
+            </div>
+            <div class="px-2 flex items-center justify-center mb-2 mt-1.5 gap-x-1">
+                <p>Already have an account?</p>
+                <a href="login.html" style="color: #DE317E; "><b>Login</b></a>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="scripts/register.js"></script>
+
+</html>

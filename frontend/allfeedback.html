@@ -1,0 +1,71 @@
+<html>
+
+<head>
+    <title>TeamOrg</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        body {
+            min-width: 300px;
+            margin: 0 auto;
+            max-height: 450px;
+            min-height: 450px;
+
+        }
+        
+        #scroll_bar {
+            height: 24rem;
+            /* equivalent to h-96 in Tailwind CSS */
+            overflow-x: hidden;
+            overflow-y: scroll;
+            margin-right: 2px;
+        }
+
+        /* Custom scrollbar styles */
+        #scroll_bar::-webkit-scrollbar {
+            width: 3px;
+
+        }
+
+        /* Track */
+        /* #scroll_bar::-webkit-scrollbar-track {
+      /* Optional: Add styles for the track if needed */
+        /* } */
+
+        /* Handle */
+        #scroll_bar::-webkit-scrollbar-thumb {
+            background: #BF95A8;
+            border-radius: 10px;
+
+        }
+
+        /* Handle on hover */
+        #scroll_bar::-webkit-scrollbar-thumb:hover {
+            background: #DB2777;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div style="background-color: #FBFBFB;" class="flex items-center  bg-gray-100 py-2 px-2 h-12">
+            <a href="task.html" class="flex items-center justify-center gap-x-2">
+                <img class="h-5 w-5 ml-2" src="https://cdn-icons-png.flaticon.com/512/3114/3114883.png" alt="avatar">
+            </a>
+            <div class="font-bold  text-sm ml-2">Feedback</div>
+        </div>
+      
+        <div id="scroll_bar" style="margin-right: 16px; margin-left: 16px; margin-top: 12px; ">
+            <div id="feedback_container">
+               
+            </div>
+            <!-- <div id="user_task_feedback">
+               
+            </div> -->
+        </div>
+    </div>
+</body>
+<script src="scripts/allfeedback.js">
+
+</script>
+
+</html>

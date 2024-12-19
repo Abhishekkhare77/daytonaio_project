@@ -1,0 +1,188 @@
+<html>
+
+<head>
+  <title>TeamOrg</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <title>TeamOrg</title>
+  <style>
+    body {
+      min-width: 300px;
+      margin: 0 auto;
+      max-height: 450px;
+      min-height: 450px;
+
+    }
+
+    #scroll_bar {
+      height: 338px;
+      overflow: hidden;
+      overflow-y: scroll;
+      margin-right: 2px;
+    }
+
+    /* width */
+    #scroll_bar::-webkit-scrollbar {
+      width: 3px;
+      height: 20px;
+    }
+
+    /* Track */
+    /* Add styles for the track here if needed */
+
+    /* Handle */
+    #scroll_bar::-webkit-scrollbar-thumb {
+      background: #BF95A8;
+      border-radius: 10px;
+    }
+
+    .loader {
+      border: 4px solid #DB2777;
+      width: 50px;
+      height: 26px;
+      border-radius: 50%;
+      border-left-color: #fff;
+      animation: spin 1s ease infinite;
+      display: none;
+      /* Start hidden */
+      margin: auto;
+    }
+
+    @keyframes spin {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-[#FAFAFA] flex flex-col justify-between">
+  <div>
+    <div class="flex flex-col item-center justify-between bg-white  ">
+      <div class="flex item-center justify-between bg-white pt-3 pb-5 px-2 ">
+        <h1 class="text-xl font-bold text-pink-700 ml-1 ">Catax</h1>
+        <div class="flex gap-x-2">
+          <div id="add_task">
+            <a href="choosetemplates.html" class="bg-pink-600 rounded-lg flex item-center justify-center h-7">
+              <div class=" flex item-center justify-center h-7 w-7 ">
+                <svg viewBox="-2.4 -2.4 28.80 28.80" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#c7238b">
+                  <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                  <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                  <g id="SVGRepo_iconCarrier">
+                    <circle opacity="0.5" cx="12" cy="12" r="8" stroke="#ffffff" stroke-width="2"></circle>
+                    <path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15" stroke="#ffffff" stroke-width="2"
+                      stroke-linecap="round"></path>
+                  </g>
+                </svg>
+              </div>
+              <h1 class="text-sm mr-2 text-white mt-1 font-medium  ">Task</h1>
+            </a>
+          </div>
+          <div class="h-7 w-7 mr-1  ">
+            <a href="profile.html">
+              <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 508 508" xml:space="preserve" fill="#000000">
+                <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+                <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+                <g id="SVGRepo_iconCarrier">
+                  <circle style="fill:#84DBFF;" cx="254" cy="254" r="254"></circle>
+                  <path style="fill:#2B3B4E;"
+                    d="M455.2,408.8C408.8,469.2,336,508,254,508S99.2,469.2,52.8,408.8l10.8-69.2l136.8-70.4 c0,0.4,0,1.2,0,1.6l-36,39.2l22,16.4l-27.2,14.4L254,490.4l94.8-149.6l-27.2-14.4l22-16.4l-36-38.8c0-0.4,0-0.8,0-1.6L444.4,340 L455.2,408.8z">
+                  </path>
+                  <g>
+                    <path style="fill:#324A5E;"
+                      d="M348.8,340.8L254,490.4l38.8-168c1.2,2,2,4.4,3.2,6.8c0,0,13.6-29.6,12-57.6l36,38.8l-22,16.4 L348.8,340.8z">
+                    </path>
+                    <path style="fill:#324A5E;"
+                      d="M159.2,340.8l27.2-14.4l-22-16.4l35.6-38.8c-1.6,28.4,12,57.6,12,57.6c0.8-2.4,2-4.8,3.2-6.8 L254,490.4L159.2,340.8z">
+                    </path>
+                  </g>
+                  <path style="fill:#E6E9EE;"
+                    d="M292.8,322L254,490l-38.8-168c13.2-23.6,38.8-20.8,38.8-20.8l0,0C254,301.2,279.6,298.4,292.8,322z">
+                  </path>
+                  <g>
+                    <path style="fill:#F1543F;"
+                      d="M254.4,300.8C254,301.2,254,301.2,254.4,300.8c-0.4,0-0.4,0-0.4,0H254.4z"></path>
+                    <path style="fill:#F1543F;"
+                      d="M278,306.8l-8.8,19.2h-30l-9.2-19.2c12-6.8,24-5.2,24-5.2S266,300,278,306.8z"></path>
+                  </g>
+                  <polygon style="fill:#FF7058;" points="274.4,402 254,490 233.6,402 239.2,325.6 268.8,325.6 ">
+                  </polygon>
+                  <path style="fill:#F9B54C;"
+                    d="M296,244.4c-1.6,8.8-9.2,27.2-42,56.8c-28.4-26.8-37.6-45.6-40.8-55.2c11.2,14.8,25.2,24.8,40.8,24.8 C270,270.8,284.4,260.4,296,244.4z">
+                  </path>
+                  <g>
+                    <path style="fill:#FFFFFF;"
+                      d="M296,328.8c-11.6-31.2-42-27.6-42-27.6c32.4-29.2,40.4-47.6,41.6-56.4c0.8-1.2,1.6-2,2.4-3.2 C321.2,273.6,296,328.8,296,328.8z">
+                    </path>
+                    <path style="fill:#FFFFFF;"
+                      d="M254,301.2c0,0-30.4-3.6-42,27.6c0,0-25.6-55.6-2.4-87.2c1.2,1.6,2.4,3.2,3.6,4.8l0,0 C216.4,255.6,225.6,274.4,254,301.2z">
+                    </path>
+                  </g>
+                  <path style="fill:#FFD05B;"
+                    d="M325.6,201.2c-3.6,5.6-8.4,9.6-12.8,11.2c-11.6,31.6-33.6,58.4-58.8,58.4s-47.2-26.8-58.8-58.4 c-4.4-1.6-9.2-5.6-12.8-11.2c-6-9.6-6-20.4,0-24c0.4-0.4,1.2-0.4,2-0.8c1.2,6.8,2.8,13.2,4.8,18.8c0,0,5.2,9.6,6.4,18 c-0.4-9.6-0.8-29.6,2.4-33.6c0,0,14-24.4,3.6-46c0,0,2.4-32,38-17.2c0,0,6.8,1.6,14,2l0,0l0,0l0,0l0,0c6.8-0.4,14-2,14-2 c36-14.8,38.4,17.6,38.4,17.6c-10.4,21.6,3.6,46,3.6,46c3.2,4,2.8,24,2.4,33.6c1.2-8.4,6.4-18,6.4-18c2.4-5.2,4-12,4.8-18.8 c0.8,0,1.2,0.4,2,0.8C331.2,181.2,331.2,191.6,325.6,201.2z">
+                  </path>
+                  <path style="fill:#324A5E;"
+                    d="M330,102.8c-2-3.2-11.6,2-11.6,2c1.2-7.2-3.2-23.2-3.2-23.2c-1.6,5.6-8,6.4-8,6.4 c0.8-5.2-5.6-19.2-5.6-19.2c1.2,6.4-8,12.8-8,12.8c1.6-5.2-10.8-23.2-10.8-23.2c2,2.8,1.2,10.8,1.2,10.8 c-4.4-9.2-16.8-18.4-16.8-18.4c0,2.4-1.2,4.8-3.2,6.8c-3.2-5.6-9.2-8.8-10.4-9.6l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0l0,0 c-1.2,0.4-7.6,3.6-10.4,9.6c-1.6-2-3.2-4.4-3.2-6.8c0,0-12.4,9.2-16.8,18.4c0,0-0.8-8,1.2-10.8c0,0-12.4,18-10.8,23.2 c0,0-9.2-6.4-8-12.8c0,0-6.4,14-5.6,19.2c0,0-6.4-0.8-8-6.4c0,0-4.4,16-3.2,23.2c0,0-9.6-5.6-11.6-2c0,0,9.2,9.6,4.4,18.4 c0,0-3.2,48.8,6.8,74c0,0,5.2,9.6,6.4,18c-0.4-9.6-0.8-29.6,2.4-33.6c0,0,14-24.4,3.6-46c0,0,2.4-32,38-17.2c0,0,6.8,1.6,14,2l0,0 l0,0l0,0l0,0c7.2-0.4,14-2,14-2C303.6,101.6,306,134,306,134c-10.4,21.6,3.6,46,3.6,46c3.2,4,2.8,24,2.4,33.6c1.2-8.4,6.4-18,6.4-18 c10.4-25.2,6.8-74,6.8-74C320.8,112.8,330,102.8,330,102.8z">
+                  </path>
+                </g>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-between item-center mb-2 mx-2 mt-2">
+
+        <div class="relative ml-1">
+          <div class="absolute  flex items-center mt-1.5 mx-1.5">
+            <svg class="w-3 h-3 ml-0.5 mt-0.5  text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+              fill="none" viewBox="0 0 20 20">
+              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" />
+            </svg>
+          </div>
+
+          <input type="search" id="default_search" style="background-color:#FAFAFA ;"
+            class="w-36 pl-6 pr-2 py-1 rounded-md border " placeholder="Search" required />
+
+        </div>
+
+        <div class="h-5 w-5 mr-2 mt-1 ">
+          <a href="setting.html">
+            <svg viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" fill="#000000">
+              <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+              <g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g>
+              <g id="SVGRepo_iconCarrier">
+                <path fill="#7B7474"
+                  d="M11.078035,0 C11.3724371,0 11.6350302,0.183056678 11.7339285,0.457230801 L12.4396543,2.41370379 C12.6930786,2.47650967 12.9108093,2.54030436 13.0942558,2.60592238 C13.2952001,2.67779926 13.5540423,2.78741449 13.8746747,2.93586046 L15.5184936,2.06596774 C15.794148,1.92009416 16.1343396,1.97375545 16.3504064,2.19719235 L17.7960017,3.69209722 C17.98787,3.8905102 18.0422042,4.18265582 17.9342767,4.43557836 L17.162857,6.24336136 C17.2913496,6.47797752 17.3939318,6.67854463 17.4711247,6.84658462 C17.5553742,7.02998593 17.6588292,7.28241713 17.7829588,7.60671302 L19.580333,8.37623211 C19.8497082,8.4915611 20.0170118,8.76152727 19.9986241,9.05119919 L19.8669066,11.126215 C19.8494975,11.4004703 19.668825,11.6382294 19.4072566,11.7310995 L17.7049419,12.3355083 C17.6562729,12.5705675 17.6053791,12.772402 17.551477,12.9424906 C17.4883274,13.1417599 17.389065,13.3979932 17.2526724,13.7155635 L18.1084613,15.6068822 C18.2316885,15.879218 18.1635045,16.1990386 17.9395819,16.3990196 L16.3138559,17.8509252 C16.0957241,18.0457347 15.7773686,18.084139 15.5182641,17.9469002 L13.8421792,17.0591354 C13.5477413,17.2124998 13.2783109,17.3348831 13.0324612,17.4263047 C12.8127426,17.5080092 12.5685018,17.5992352 12.2997543,17.6999771 L11.6499659,19.5002547 C11.5529743,19.7689756 11.2984077,19.9507082 11.0099151,19.9571805 L9.10927684,20 C8.81300029,20.0064684 8.54492708,19.8269822 8.44118272,19.5525044 L7.6751041,17.5256808 C7.3232066,17.4026533 7.06612795,17.3070148 6.89898146,17.2366139 C6.74058527,17.1698987 6.53544077,17.0722593 6.28058727,16.9426265 L4.38190658,17.7549437 C4.12577479,17.8645252 3.82821583,17.812324 3.62584584,17.6223069 L2.22106797,16.3032781 C2.00593124,16.1012735 1.94386481,15.7866753 2.0664447,15.519534 L2.88322205,13.7395109 C2.76017205,13.4979963 2.65957084,13.2838441 2.58116863,13.0959926 C2.49857708,12.8981035 2.39862152,12.628586 2.28009144,12.2848943 L0.491710371,11.7412063 C0.190471763,11.6496264 -0.0110085834,11.3694211 0.000465944291,11.0580168 L0.071249487,9.13703967 C0.0806273232,8.88253689 0.2313194,8.65393727 0.463026654,8.5427144 L2.34096885,7.64127468 C2.42759746,7.32228988 2.50386559,7.07419005 2.57165467,6.89274074 C2.63878533,6.7130538 2.74293335,6.47740464 2.8854431,6.18143219 L2.06997455,4.45996626 C1.94312228,4.19217928 2.00336838,3.87420996 2.21965377,3.66998322 L3.62443163,2.34352648 C3.82439931,2.15470767 4.11840992,2.10075785 4.37358276,2.20606012 L6.27210909,2.98952564 C6.4823493,2.85093927 6.67247185,2.73658268 6.84371422,2.6461118 C7.04934485,2.53747289 7.3225817,2.42318736 7.66837893,2.29976859 L8.32789678,0.458652854 C8.42637398,0.183743082 8.68933933,0 8.98430143,0 L11.078035,0 Z M10.0237083,7.01854658 C8.35715373,7.01854658 7.00614429,8.35435786 7.00614429,10.0021646 C7.00614429,11.6499713 8.35715373,12.9857826 10.0237083,12.9857826 C11.6902629,12.9857826 13.0412723,11.6499713 13.0412723,10.0021646 C13.0412723,8.35435786 11.6902629,7.01854658 10.0237083,7.01854658 Z">
+                </path>
+              </g>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- //-----------------nav------------------// -->
+
+    <div style=" background-color: #FAFAFA; " id="scroll_bar" class="gap-y-1 m-1">
+
+      <div class=" flex justify-between items-center rounded">
+        <!-- <div id="task_container" class="flex  flex-col items-start justify-center w-full gap-x-2 ">
+
+
+        </div> -->
+        <div id="loader" class="loader" style="margin-top: 50%; margin-left: 50%;"></div>
+        <div id="task_container" class="flex flex-col items-start justify-center w-full gap-x-2"></div>
+      </div>
+    </div>
+  </div>
+
+
+</body>
+<script src="scripts/popup.js"></script>
+
+</html>
