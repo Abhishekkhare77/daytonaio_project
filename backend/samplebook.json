@@ -1,0 +1,35 @@
+[
+    {
+        "title": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "description": "A novel set in the Roaring Twenties that tells the story of Jay Gatsby's unrequited love for Daisy Buchanan.",
+        "keywords": [
+            "Classic",
+            "American Dream",
+            "Tragedy"
+        ],
+        "pdf_uri": "https://www.planetebook.com/free-ebooks/the-great-gatsby.pdf"
+    },
+    {
+        "title": "1984",
+        "author": "George Orwell",
+        "description": "A dystopian novel that explores the dangers of totalitarianism and extreme political ideology.",
+        "keywords": [
+            "Dystopia",
+            "Surveillance",
+            "Freedom"
+        ],
+        "pdf_uri": "https://rauterberg.employee.id.tue.nl/lecturenotes/DDM110%20CAS/Orwell-1949%201984.pdf"
+    },
+    {
+        "title": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "description": "A novel that addresses serious issues like racial injustice and moral growth in the Deep South.",
+        "keywords": [
+            "Racism",
+            "Innocence",
+            "Moral Growth"
+        ],
+        "pdf_uri": "https://www.raio.org/TKMFullText.pdf"
+    }
+]
