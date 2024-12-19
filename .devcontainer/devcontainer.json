@@ -1,0 +1,57 @@
+{
+  "name": "Daytona.io Dev Container",
+  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+  "features": {
+    "docker-in-docker": "latest",
+    "node": "lts" // Install the latest LTS version of Node.js
+  },
+  "extensions": [
+    "ms-python.python",
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "eamodio.gitlens",
+    "ms-azuretools.vscode-docker"
+  ],
+  "settings": {
+    "python.pythonPath": "/usr/local/bin/python",
+    "editor.formatOnSave": true,
+    "eslint.validate": [
+      "javascript",
+      "javascriptreact",
+      "typescript",
+      "typescriptreact"
+    ],
+    "terminal.integrated.shell.linux": "/bin/bash"
+  },
+  "mounts": [
+    "source=${localWorkspaceFolder}/frontend,target=/workspace/frontend,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/backend,target=/workspace/backend,type=bind,consistency=cached"
+  ],
+  "forwardPorts": [3000, 8000, 7700],
+  "workspaceFolder": "/workspace",
+  "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
+  "postStartCommand": "/workspace/.devcontainer/start_services.sh",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "esbenp.prettier-vscode",
+        "dbaeumer.vscode-eslint",
+        "eamodio.gitlens",
+        "ms-azuretools.vscode-docker"
+      ],
+      "settings": {
+        "python.pythonPath": "/usr/local/bin/python",
+        "editor.formatOnSave": true,
+        "eslint.validate": [
+          "javascript",
+          "javascriptreact",
+          "typescript",
+          "typescriptreact"
+        ]
+      }
+    }
+  },
+  "containerUser": "vscode",
+  "shutdownAction": "none"
+}
