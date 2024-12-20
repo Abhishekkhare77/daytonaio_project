@@ -1,8 +1,6 @@
 {
   "name": "Daytona.io Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile"
-  },
+  "image": "mcr.microsoft.com/vscode/devcontainers/base:ubuntu", // You can change the base image if needed
   "features": {
     "docker-in-docker": "latest",
     "node": "lts"
@@ -31,32 +29,7 @@
   ],
   "forwardPorts": [3000, 8000, 7700],
   "workspaceFolder": "/workspace",
-  "postStartCommand": [
-    "docker ps | grep meilisearch || docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:v1.2",
-    "source /workspace/backend/venv/bin/activate && uvicorn backend.main:app --host 0.0.0.0 --port 8000 &",
-    "npm run dev --prefix /workspace/frontend"
-  ],
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "ms-python.python",
-        "esbenp.prettier-vscode",
-        "dbaeumer.vscode-eslint",
-        "eamodio.gitlens",
-        "ms-azuretools.vscode-docker"
-      ],
-      "settings": {
-        "python.pythonPath": "/workspace/backend/venv/bin/python",
-        "editor.formatOnSave": true,
-        "eslint.validate": [
-          "javascript",
-          "javascriptreact",
-          "typescript",
-          "typescriptreact"
-        ]
-      }
-    }
-  },
+  "postStartCommand": "/bin/bash -c 'docker ps | grep meilisearch || docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:v1.2 && source /workspace/backend/venv/bin/activate && uvicorn backend.main:app --host 0.0.0.0 --port 8000 & npm run dev --prefix /workspace/frontend'",
   "containerUser": "vscode",
   "shutdownAction": "none"
 }
