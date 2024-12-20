@@ -1,9 +1,11 @@
 {
   "name": "Daytona.io Dev Container",
-  "image": "mcr.microsoft.com/vscode/devcontainers/python:3.11",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
   "features": {
     "docker-in-docker": "latest",
-    "node": "lts" // Install the latest LTS version of Node.js
+    "node": "lts"
   },
   "extensions": [
     "ms-python.python",
@@ -13,7 +15,7 @@
     "ms-azuretools.vscode-docker"
   ],
   "settings": {
-    "python.pythonPath": "/usr/local/bin/python",
+    "python.pythonPath": "/workspace/backend/venv/bin/python",
     "editor.formatOnSave": true,
     "eslint.validate": [
       "javascript",
@@ -29,8 +31,11 @@
   ],
   "forwardPorts": [3000, 8000, 7700],
   "workspaceFolder": "/workspace",
-  "postCreateCommand": "pip install -r backend/requirements.txt && npm install --prefix frontend",
-  "postStartCommand": "/workspace/.devcontainer/start_services.sh",
+  "postStartCommand": [
+    "docker ps | grep meilisearch || docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:v1.2",
+    "source /workspace/backend/venv/bin/activate && uvicorn backend.main:app --host 0.0.0.0 --port 8000 &",
+    "npm run dev --prefix /workspace/frontend"
+  ],
   "customizations": {
     "vscode": {
       "extensions": [
@@ -41,7 +46,7 @@
         "ms-azuretools.vscode-docker"
       ],
       "settings": {
-        "python.pythonPath": "/usr/local/bin/python",
+        "python.pythonPath": "/workspace/backend/venv/bin/python",
         "editor.formatOnSave": true,
         "eslint.validate": [
           "javascript",
