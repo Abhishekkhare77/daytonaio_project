@@ -29,7 +29,7 @@
   ],
   "forwardPorts": [3000, 8000, 7700],
   "workspaceFolder": "/workspace",
-  "postStartCommand": "if docker ps -a --filter name=meilisearch --format '{{.Names}}' | grep -w meilisearch; then docker start meilisearch || true; else docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:v1.2; fi && source /workspace/backend/venv/bin/activate && uvicorn backend.main:app --host 0.0.0.0 --port 8000 & npm run dev --prefix /workspace/frontend",
+  "postStartCommand": "if docker ps -a --filter name=meilisearch --format '{{.Names}}' | grep -w meilisearch; then docker start meilisearch || true; else docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:v1.2; fi && source /workspace/backend/venv/bin/activate && uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 & npm run dev --prefix /workspace/frontend",
   "containerUser": "vscode",
   "shutdownAction": "none"
 }
