@@ -30,7 +30,7 @@
   "forwardPorts": [3000, 8000, 7700],
   "workspaceFolder": "/workspace",
   "postCreateCommand": "sudo apt-get update && sudo apt-get install -y python3 python3-pip && pip3 install --upgrade pip && pip3 install -r /workspace/backend/requirements.txt && cd /workspace/frontend && npm install",
-  "postStartCommand": "if docker ps -a --filter name=meilisearch --format '{{.Names}}' | grep -w meilisearch; then docker start meilisearch || true; else docker run -d --name meilisearch -p 7700:7700 getmeili/meilisearch:v1.2; fi && uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 & npm run dev --prefix /workspace/frontend",
+  "postStartCommand": "if docker ps -a --filter name=meilisearch --format '{{.Names}}' | grep -w meilisearch; then docker start meilisearch || true; else docker run -d --name meilisearch -p 7700:7700 -e MEILI_MASTER_KEY=toLlX17uYy22fqasweyrnPLd6idsqhly2Qq3Yq4zx4M getmeili/meilisearch:v1.2; fi && uvicorn backend.app.main:app --host 0.0.0.0 --port 8000 & npm run dev --prefix /workspace/frontend",
   "containerUser": "root",
   "shutdownAction": "none"
 }
